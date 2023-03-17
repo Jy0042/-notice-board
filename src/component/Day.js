@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 export default function Day() {
 
-    const {day} = useParams;
+    const {day} = useParams();
     const wordList = dummy.words.filter(word => word.day === Number(day));
 
     return (
