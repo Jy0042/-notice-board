@@ -1,6 +1,18 @@
 import { useState } from "react";
 
-export default function Word({ word: w }) {
+interface IProps {
+    word: IWord;
+}
+
+export interface IWord {
+    day: string;
+    eng: string;
+    kor: string;
+    isDone: boolean;
+    id: number;
+}
+
+export default function Word({ word: w }: IProps) {
     const [word,setWord] = useState(w);
     const [isShow, setIsShow] = useState(false);
     const [isDone, setIsDone] = useState(word.isDone);
@@ -10,7 +22,6 @@ export default function Word({ word: w }) {
     }
 
     function toggleDone() {
-        // setIsDone(!isDone);
         fetch(`http://localhost:3001/words/${word.id}`, {
             method : 'PUT',
             headers : {
@@ -33,18 +44,21 @@ export default function Word({ word: w }) {
                 method : 'DELETE'
             }).then(res => {
                 if (res.ok) {
-                    setWord({ id: 0});
+                    setWord({
+                        ...word,
+                        id: 0,
+                    });
                 }
             });
         }
     }
 
-    if(word.id === 0){
+    if (word.id === 0){
         return null;
     }
 
     return (
-        <tr className={isDone ? 'off' : ''}>
+        <tr className={isDone ? "off" : ""}>
             <td>
                 <input type="checkbox" checked={isDone} onChange={toggleDone} />
             </td>
@@ -57,3 +71,8 @@ export default function Word({ word: w }) {
         </tr>
     );
 }
+
+// Create - POST
+// Read - GET
+// Update - PUT
+// Delete - DELETE
