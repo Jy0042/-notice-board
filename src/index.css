@@ -130,3 +130,37 @@ button {
   height: 40px;
   font-size: 20px;
 }
+
+.userLoginBox {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+}
+
+#loginBtn {
+  margin: 20px 30px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: dodgerblue;
+}
+
+.back_bt{
+  margin: 0 30px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color:tomato;
+}
